@@ -67,8 +67,4 @@ elif len(sys.argv) == 4:
 	beta = float(sys.argv[3])
 
 wheel = wheelgraph(node_count)
-inverse_from_id = inverse_intermediate(wheel, alpha)
-# print wheel.dot(wheel).dot(wheel).dot(wheel).dot(wheel).dot(wheel).dot(wheel)
-# print (1.0/( node_count - 1))**7 * wheel.dot(wheel).dot(wheel).dot(wheel).dot(wheel).dot(wheel).dot(wheel)
-print get_eigenvalues(inverse_from_id)
-# print katz_centrality(wheel, alpha, beta)
+print katz_centrality(wheel, alpha, beta)
