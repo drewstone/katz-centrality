@@ -6,7 +6,7 @@ node_count = 0
 alpha = 0
 beta = 0
 
-# Wheel graph is symmetric so it suffices to iterate over upper diagonal
+# Wheel graph is symmetric so it suffices to iterate over lower diagonal
 def wheelgraph(n):
 	mat = np.zeros([n,n])
 	for i in range(n):
