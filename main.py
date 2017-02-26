@@ -18,20 +18,20 @@ def wheelgraph(n):
 			mat[i,j] = 1
 			mat[j,i] = 1
 		else:
-		if i == j:
-			continue
-		else:
-			left_neighbor = i - 1
-			right_neighbor = i + 1
-			if left_neighbor < 0:
-			left_neighbor = n-1
-			if right_neighbor >= n:
-			right_neighbor = (right_neighbor + 1) % n
+			if i == j:
+				continue
+			else:
+				left_neighbor = i - 1
+				right_neighbor = i + 1
+				if left_neighbor < 0:
+				left_neighbor = n-1
+				if right_neighbor >= n:
+				right_neighbor = (right_neighbor + 1) % n
 
-			mat[i, left_neighbor] = 1
-			mat[i, right_neighbor] = 1
-			mat[left_neighbor, i] = 1
-			mat[right_neighbor, i] = 1
+				mat[i, left_neighbor] = 1
+				mat[i, right_neighbor] = 1
+				mat[left_neighbor, i] = 1
+				mat[right_neighbor, i] = 1
 	return mat
 
 def katz_centrality(graph, alph, bet):
