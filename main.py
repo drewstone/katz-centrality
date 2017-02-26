@@ -10,24 +10,22 @@ beta = 0
 def wheelgraph(n):
 	mat = np.zeros([n,n])
 	for i in range(n):
-	for j in range(i):
-		if i == 0 or j == 0:
-		if (i == j):
-			continue          
-		else:
-			mat[i,j] = 1
-			mat[j,i] = 1
-		else:
-			if i == j:
-				continue
+		for j in range(i):
+			if (i == j):
+				continue          
+			elif i == 0 or j == 0:
+				mat[i,j] = 1
+				mat[j,i] = 1
 			else:
 				left_neighbor = i - 1
 				right_neighbor = i + 1
+				
 				if left_neighbor < 0:
-				left_neighbor = n-1
+					left_neighbor = n-1
 				if right_neighbor >= n:
-				right_neighbor = (right_neighbor + 1) % n
+					right_neighbor = (right_neighbor + 1) % n
 
+				print (left_neighbor, i, right_neighbor)
 				mat[i, left_neighbor] = 1
 				mat[i, right_neighbor] = 1
 				mat[left_neighbor, i] = 1
@@ -35,6 +33,7 @@ def wheelgraph(n):
 	return mat
 
 def katz_centrality(graph, alph, bet):
+	print graph
 	column_ones = np.ones(len(graph)).reshape(len(graph), 1)
 	inverse_interm = inverse_intermediate(graph, alph)
 	inverse_interm_beta = bet * inverse_interm
